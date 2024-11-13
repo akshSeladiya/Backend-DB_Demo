@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>User List</h1>
+    <div class="add-user">
+        <a href="/user/new"><button>Add User</button></a>
+    </div>
+    <table class="fade-in">
+        <tr>
+            <th>Id</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Actions</th>
+        </tr>
+        <% users.forEach(user=> { %>
+            <tr>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.username %>
+                </td>
+                <td>
+                    <form method="GET" action="/user/<%= user.id %>/edit" style="display:inline;">
+                        <button>Edit</button>
+                    </form>
+                    <form method="POST" action="/user/<%= user.id %>?_method=DELETE" style="display:inline;">
+                        <button style="background-color: #dc3545;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+    <script src="/script.js"></script>
+</body>
+
+</html>

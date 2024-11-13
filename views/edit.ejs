@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Username</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h2>Edit User: <%= user.email %>
+    </h2>
+    <form method="post" action="/user/<%= user.id %>?_method=PATCH" class="fade-in">
+        <label for="username">New Username:</label>
+        <textarea id="username" name="username" placeholder="Enter new username"><%= user.username %></textarea>
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Edit</button>
+    </form>
+    <script src="/script.js"></script>
+</body>
+
+</html>
